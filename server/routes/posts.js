@@ -6,6 +6,6 @@ const router = express.Router();
 //callback ima req i res
 router.get("/", getPosts);
 
-router.get("/", createPost);
+router.post("/", createPost);
 
 export default router;
