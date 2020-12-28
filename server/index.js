@@ -6,14 +6,14 @@ import postRoutes from "./routes/posts.js";
 
 const app = express();
 
-//uspostava middlewarea izmedu aplikacije i servera
-//svim routama dodajemo postfix /posts
-app.use("/posts", postRoutes);
-
 //postavljanje bodyParsera kako bi mogao ispravno slati zahtjeve
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+//uspostava middlewarea izmedu aplikacije i servera
+//svim routama dodajemo postfix /posts
+app.use("/posts", postRoutes);
 
 const CONNECTION_URL =
   "mongodb+srv://userKODE:marija2020@clusterkode.28tl0.mongodb.net/<dbname>?retryWrites=true&w=majority";
