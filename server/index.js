@@ -2,8 +2,13 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import postRoutes from "./routes/posts.js";
 
 const app = express();
+
+//uspostava middlewarea izmedu aplikacije i servera
+//svim routama dodajemo postfix /posts
+app.use("/posts", postRoutes);
 
 //postavljanje bodyParsera kako bi mogao ispravno slati zahtjeve
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
