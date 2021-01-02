@@ -1,31 +1,54 @@
 .App {
   text-align: center;
+  background-color: #1b2432;
 }
 
 .header {
+  width: 100%;
+  position: absolute;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   height: 55px;
-  background-color: #e5e6e7;
+  background-color: #2c2b3c65;
   font-size: 17px;
 }
 .header > * {
   padding: 0 1rem;
-  color: rgb(68, 67, 67);
+  color: #f5f5f5;
   margin-right: 20px;
   line-height: 3em;
   height: 3em;
 }
 
+.header > *:hover {
+  cursor: pointer;
+}
+
 .posts {
-  background-color: rgb(194, 146, 218);
+  background-color: rgba(194, 146, 218, 0.164);
 }
 
 .post {
-  background-color: rgb(248, 197, 223);
+  background-color: rgba(248, 197, 223, 0.116);
 }
 
 .form {
-  background-color: lightblue;
+  background-color: rgba(173, 216, 230, 0.068);
+}
+.container {
+  position: relative;
+}
+.home-image {
+  width: 100%;
+  max-height: 90vh;
+}
+
+.search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 13px;
 }

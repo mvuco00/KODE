@@ -3,9 +3,9 @@ import React from "react";
 const Header = () => {
   return (
     <div className="header">
-      <div>Home</div>
-      <div>Favorites</div>
-      <div>About</div>
+      <div>HOME</div>
+      <div>FAVORITES</div>
+      <div>ABOUT US</div>
     </div>
   );
 };
