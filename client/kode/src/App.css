@@ -48,7 +48,21 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
+  width: 370px;
+  background-color: white;
   padding: 13px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.search input {
+  width: 300px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
