@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import postRoutes from "./routes/posts.js";
 
-const app = express();
+const app = express(); //poziv express funkcije kojim se radi express aplikcija
 
 //postavljanje bodyParsera kako bi mogao ispravno slati zahtjeve
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
