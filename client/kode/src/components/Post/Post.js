@@ -9,14 +9,20 @@ const Post = ({ post }) => {
   console.log(post);
   return (
     <div className={classes.post}>
-      <img src={post.selectedFile} className={classes.postImage} />
+      <a href={post.youtubeLink} target="_blank" rel="noopener noreferrer">
+        <img src={post.selectedFile} className={classes.postImage} />
+      </a>
+
       <div className={classes.tags}>
         {post.tags.map((el) => (
           <span key={el} className={classes.tag}>{`#${el}`}</span>
         ))}
       </div>
       <div className={classes.textInPost}>
-        <h2 className={classes.title}>{post.title}</h2>
+        <a href={post.youtubeLink} target="_blank" rel="noopener noreferrer">
+          <h2 className={classes.title}>{post.title}</h2>
+        </a>
+
         <span className={classes.creator}>
           by <b>{post.creator}</b>{" "}
         </span>

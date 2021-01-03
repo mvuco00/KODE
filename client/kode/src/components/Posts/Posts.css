@@ -1,10 +1,19 @@
 .posts {
   background-color: #111822;
 }
+h1 {
+  color: rgb(209, 208, 208);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  font-size: 45px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
 
 .allPosts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
   padding: 40px 0 40px 0;
   margin-left: 50px;
 }

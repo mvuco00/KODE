@@ -9,6 +9,7 @@ const Posts = () => {
   console.log(posts);
   return (
     <div className={classes.posts}>
+      <h1>BEST TUTORIALS </h1>
       {!posts.length ? (
         <CircularProgress />
       ) : (
