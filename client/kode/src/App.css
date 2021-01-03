@@ -7,24 +7,51 @@
   width: 100%;
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 55px;
-  background-color: #2c2b3c42;
-  font-size: 17px;
+  height: 60px;
+  background-color: #27272e34;
+  font-size: 15px;
+  text-decoration: none;
 }
 .header > * {
-  padding: 0 1rem;
+  text-decoration: none;
   color: #f5f5f5;
-  margin-right: 20px;
+}
+.header > *:last-child {
+  margin-right: 15px;
+}
+.header-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-links > * {
+  color: #f5f5f5;
+  padding: 0 1rem;
+  margin-right: 18px;
   line-height: 3em;
   height: 3em;
+  text-decoration: none;
 }
 
-.header > *:hover {
+.header-links > *:hover {
   cursor: pointer;
 }
+.logo {
+  margin-left: 20px;
+}
 
+.text-on-photo {
+  position: absolute;
+  color: #f5f5f5;
+  top: 30%;
+  left: 37%;
+}
+
+.text-on-photo div {
+  font-size: 20px;
+}
 .posts {
   background-color: rgba(194, 146, 218, 0.164);
 }
@@ -46,7 +73,7 @@
 
 .search {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   width: 370px;
   background-color: white;
