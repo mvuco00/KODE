@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
-import { createPost } from "../actions/posts";
+import { createPost } from "../../actions/posts";
+import classes from "./Form.css";
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -21,7 +22,7 @@ const Form = () => {
   const handleClear = () => {};
 
   return (
-    <div className="form">
+    <div className={classes.form}>
       <h1>FORM</h1>
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         {/*trebamo spreadat state kako se ne bi stalno overwrite-a nego da samo pomini potrebnu vrijednost*/}

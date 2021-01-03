@@ -1,13 +1,14 @@
 import React from "react";
-import Post from "./Post";
+import Post from "../Post/Post";
 import { useSelector } from "react-redux";
 import { Grid, CircularProgress } from "@material-ui/core";
+import classes from "./Posts.css";
 
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
   console.log(posts);
   return (
-    <div className="posts">
+    <div className={classes.Posts}>
       <h3>POSTS</h3>
       <div>
         {!posts.length ? (
