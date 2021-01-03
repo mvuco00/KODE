@@ -1,3 +1,10 @@
 .posts {
-  background-color: rgba(194, 146, 218, 0.164);
+  background-color: #111822;
+}
+
+.allPosts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 40px 0 40px 0;
+  margin-left: 50px;
 }

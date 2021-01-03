@@ -1,3 +1,56 @@
 .post {
-  background-color: rgba(248, 197, 223, 0);
+  height: 350px;
+  width: 280px;
+  border-radius: 15px;
+  background-color: rgba(40, 49, 68, 0.596);
+  text-align: start;
+}
+
+.postImage {
+  width: inherit;
+  height: 150px;
+  border-radius: 15px;
+}
+.tags {
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+.tag {
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  background-color: rgba(67, 77, 97, 0.596);
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid rgb(158, 157, 157);
+}
+
+.textInPost {
+  margin-left: 10px;
+}
+.title {
+  color: rgb(209, 208, 208);
+  font-size: 20px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.creator {
+  color: rgb(165, 112, 112);
+}
+
+.message {
+  font-size: 13px;
+  color: white;
+  margin-bottom: 0;
+}
+.dateButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.date {
+  font-size: 10px;
+  color: gray;
 }
