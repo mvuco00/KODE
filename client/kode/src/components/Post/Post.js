@@ -1,7 +1,6 @@
 import React from "react";
 import moment from "moment";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-
 import { Button } from "@material-ui/core";
 import classes from "./Post.css";
 
@@ -10,7 +9,11 @@ const Post = ({ post }) => {
   return (
     <div className={classes.post}>
       <a href={post.youtubeLink} target="_blank" rel="noopener noreferrer">
-        <img src={post.selectedFile} className={classes.postImage} />
+        <img
+          src={post.selectedFile}
+          className={classes.postImage}
+          alt="tutorials"
+        />
       </a>
 
       <div className={classes.tags}>
