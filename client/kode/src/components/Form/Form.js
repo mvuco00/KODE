@@ -36,18 +36,24 @@ const Form = ({ currentId, setCurrentId }) => {
     } else {
       dispatch(createPost(postData));
     }
+    handleClear();
   };
-  const handleClear = () => {};
+  const handleClear = () => {
+    setCurrentId(null);
+    setPostData({
+      creator: "",
+      title: "",
+      youtubeLink: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    });
+  };
 
   return (
     <div className={classes.form}>
-      <h1>FORM</h1>
-      <form
-        autoComplete="off"
-        className={classes.inputs}
-        noValidate
-        onSubmit={handleSubmit}
-      >
+      <h1>{currentId ? "EDIT" : "ADD"}</h1>
+      <form autoComplete="off" className={classes.inputs} noValidate>
         {/*trebamo spreadat state kako se ne bi stalno overwrite-a nego da samo pomini potrebnu vrijednost*/}
         <input
           type="text"
@@ -96,7 +102,7 @@ const Form = ({ currentId, setCurrentId }) => {
           <button className={classes.clear} onClick={handleClear}>
             CLEAR
           </button>
-          <button className={classes.btn} type="submit">
+          <button className={classes.btn} onClick={handleSubmit}>
             SUBMIT
           </button>
         </div>

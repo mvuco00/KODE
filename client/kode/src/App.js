@@ -17,7 +17,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId, dispatch]);
   return (
     <div className={classes.App}>
       <div className={classes.container}>
