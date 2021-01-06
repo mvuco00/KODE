@@ -24,7 +24,12 @@ const Form = () => {
   return (
     <div className={classes.form}>
       <h1>FORM</h1>
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        className={classes.inputs}
+        noValidate
+        onSubmit={handleSubmit}
+      >
         {/*trebamo spreadat state kako se ne bi stalno overwrite-a nego da samo pomini potrebnu vrijednost*/}
         <input
           type="text"
@@ -69,8 +74,14 @@ const Form = () => {
             setPostData({ ...postData, selectedFile: base64 })
           }
         />
-        <button type="submit">SUBMIT</button>
-        <button onClick={handleClear}>CLEAR</button>
+        <div className={classes.buttons}>
+          <button className={classes.clear} onClick={handleClear}>
+            CLEAR
+          </button>
+          <button className={classes.btn} type="submit">
+            SUBMIT
+          </button>
+        </div>
       </form>
     </div>
   );
