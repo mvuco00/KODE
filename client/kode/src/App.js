@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./App.css";
 import { useDispatch } from "react-redux"; // sluzi za dispatchanje akcije
 import { getPosts } from "../src/actions/posts";
@@ -12,6 +12,7 @@ import BcgImg from "./bcgimg.jpg";
 import Search from "./components/Search/Search";
 
 const App = () => {
+  const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,8 +48,8 @@ const App = () => {
         <img src={BcgImg} alt="Logo" className={classes.homeImage} />
       </div>
 
-      <Posts />
-      <Form />
+      <Posts setCurrentId={setCurrentId} />
+      <Form currentId={currentId} setCurrentId={setCurrentId} />
     </div>
   );
 };

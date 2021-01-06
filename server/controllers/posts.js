@@ -1,4 +1,5 @@
 import PostMessage from "../models/postMessage.js";
+import mongoose from "mongoose";
 
 //logika routa
 export const getPosts = async (req, res) => {
@@ -26,4 +27,22 @@ export const createPost = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
+};
+
+//naša ruta je /:id, pa ce zahtjev biti /posts/123, 123 je id
+
+export const updatePost = async (req, res) => {
+  const { id: _id } = req.params;
+  //ono sto dobivamo od fronteda
+  const post = req.body;
+  // provjera je li dobiveni id stvarno mongoose objekt
+  if (!mongoose.Types.ObjectId.isValid(_id))
+    return res.status(404).send("No post with that id");
+
+  //stvara se novi post
+  const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, {
+    new: true,
+  });
+
+  res.json(updatedPost);
 };

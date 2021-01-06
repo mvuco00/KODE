@@ -1,10 +1,11 @@
 import React from "react";
 import moment from "moment";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Button } from "@material-ui/core";
 import classes from "./Post.css";
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   console.log(post);
   return (
     <div className={classes.post}>
@@ -38,6 +39,15 @@ const Post = ({ post }) => {
             <StarBorderIcon fontSize="small" /> <b>{post.likeCount}</b>
           </Button>
         </div>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => {
+            setCurrentId(post._id);
+          }}
+        >
+          <MoreHorizIcon />
+        </Button>
       </div>
     </div>
   );

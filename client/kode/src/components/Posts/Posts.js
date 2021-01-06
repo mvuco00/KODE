@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { CircularProgress } from "@material-ui/core";
 import classes from "./Posts.css";
 
-const Posts = () => {
+const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
   console.log(posts);
   return (
@@ -15,7 +15,7 @@ const Posts = () => {
       ) : (
         <div className={classes.allPosts}>
           {posts.map((post) => (
-            <Post key={post._id} post={post} />
+            <Post key={post._id} post={post} setCurrentId={setCurrentId} />
           ))}
         </div>
       )}
