@@ -5,6 +5,7 @@ import {
   LIKE,
   DELETE,
 } from "../actionTypes/actionTypes";
+
 //state ce bit postovi, a to je array
 export default (state = [], action) => {
   switch (action.type) {
