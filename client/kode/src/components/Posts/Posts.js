@@ -27,9 +27,11 @@ const Posts = ({ setCurrentId, search }) => {
         <CircularProgress />
       ) : (
         <div className={classes.allPosts}>
-          {filteredData.map((post) => (
-            <Post key={post._id} post={post} setCurrentId={setCurrentId} />
-          ))}
+          {filteredData !== undefined
+            ? filteredData.map((post) => (
+                <Post key={post._id} post={post} setCurrentId={setCurrentId} />
+              ))
+            : null}
         </div>
       )}
     </div>
