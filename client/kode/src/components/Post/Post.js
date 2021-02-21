@@ -61,7 +61,8 @@ const Post = ({ post, setCurrentId }) => {
           color="primary"
           onClick={() => dispatch(likePost(post._id))}
         >
-          <FavoriteBorderIcon fontSize="small" /> <b>{post.likeCount}</b>
+          <FavoriteBorderIcon fontSize="small" />{" "}
+          <b>&nbsp; {post.likeCount} &nbsp;</b>
         </Button>
       </div>
     </div>

@@ -14,3 +14,18 @@ h1 {
   padding: 40px 0 40px 0;
   margin-left: 50px;
 }
+@media only screen and (max-width: 980px) {
+  .allPosts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 652px) {
+  .allPosts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+}
