@@ -7,7 +7,7 @@ export const getPosts = async (req, res) => {
   try {
     //find() treba neko vrijeme da se izvrsi, to je asinkrono, pa je potreban await i async
     const postMessage = await PostMessage.find();
-   
+
     //status 200 -- sve je dobro
     res.status(200).json(postMessage);
   } catch (error) {
@@ -48,4 +48,14 @@ export const updatePost = async (req, res) => {
   );
 
   res.json(updatedPost);
+};
+
+export const deletePost = async (req, res) => {
+  const { id } = req.params;
+  // provjera je li dobiveni id stvarno mongoose objekt
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send("No post with that id");
+
+  await PostMessage.findByIdAndRemove(id);
+  res.json({ message: "Post deleted sucessfully" });
 };

@@ -1,6 +1,8 @@
 //state ce bit postovi, a to je array
 export default (state = [], action) => {
   switch (action.type) {
+    case "DELETE":
+      return state.filter((post) => post._id !== action.payload);
     case "FETCH_ALL":
       return action.payload;
     case "CREATE":
@@ -9,6 +11,7 @@ export default (state = [], action) => {
       return state.map((post) =>
         post._id === action.payload._id ? action.payload : post
       );
+
     default:
       return state;
   }
