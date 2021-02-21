@@ -12,6 +12,10 @@ export default (state = [], action) => {
         post._id === action.payload._id ? action.payload : post
       );
 
+    case "LIKE":
+      return state.map((post) =>
+        post._id === action.payload._id ? action.payload : post
+      );
     default:
       return state;
   }

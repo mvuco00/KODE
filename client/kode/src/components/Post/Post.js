@@ -1,12 +1,12 @@
 import React from "react";
 import moment from "moment";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { Button } from "@material-ui/core";
 import classes from "./Post.css";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../../actions/posts";
+import { deletePost, likePost } from "../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
   console.log(post);
@@ -39,9 +39,6 @@ const Post = ({ post, setCurrentId }) => {
           <span className={classes.date}>
             added {moment(post.createdAt).fromNow()}
           </span>
-          <Button size="small" color="primary">
-            <StarBorderIcon fontSize="small" /> <b>{post.likeCount}</b>
-          </Button>
         </div>
         <Button
           size="small"
@@ -58,6 +55,13 @@ const Post = ({ post, setCurrentId }) => {
           onClick={() => dispatch(deletePost(post._id))}
         >
           <DeleteForeverIcon />
+        </Button>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(likePost(post._id))}
+        >
+          <FavoriteBorderIcon fontSize="small" /> <b>{post.likeCount}</b>
         </Button>
       </div>
     </div>
