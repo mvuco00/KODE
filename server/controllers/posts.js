@@ -7,8 +7,7 @@ export const getPosts = async (req, res) => {
   try {
     //find() treba neko vrijeme da se izvrsi, to je asinkrono, pa je potreban await i async
     const postMessage = await PostMessage.find();
-    console.log(postMessage);
-
+   
     //status 200 -- sve je dobro
     res.status(200).json(postMessage);
   } catch (error) {
