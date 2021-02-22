@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./Header.css";
+import { Button } from "@material-ui/core";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const Header = () => {
+  const user = null;
   return (
     <div className={classes.header}>
       <svg
@@ -24,7 +28,18 @@ const Header = () => {
         <Link to="/favorites">FAVORITES</Link>
         <Link to="/about">ABOUT US</Link>
       </div>
-      <Link to="/">SIGN IN</Link>
+      {user ? (
+        <div>
+          <AccountCircleIcon />
+          <Button size="small" color="primary" onClick={() => {}}>
+            <ExitToAppIcon />
+          </Button>
+        </div>
+      ) : (
+        <Button component={Link} to="/auth">
+          SIGN IN
+        </Button>
+      )}
     </div>
   );
 };
