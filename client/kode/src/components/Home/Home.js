@@ -16,7 +16,6 @@ const Home = () => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
 
-  console.log(search);
   return (
     <div className={classes.App}>
       <div className={classes.container}>

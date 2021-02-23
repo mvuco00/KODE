@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import classes from "./Header.css";
+import { useDispatch } from "react-redux";
+
 import { Button } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -8,12 +10,22 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 const Header = () => {
   // user sadrzi token i result
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
+
   console.log(user);
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    history.push("/");
+    setUser(null);
+  };
 
   useEffect(() => {
     const token = user?.token;
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, []);
+  }, [location]);
+
   return (
     <div className={classes.header}>
       <svg
@@ -38,7 +50,7 @@ const Header = () => {
       {user ? (
         <div>
           <AccountCircleIcon />
-          <Button size="small" color="primary" onClick={() => {}}>
+          <Button size="small" color="primary" onClick={logout}>
             <ExitToAppIcon />
           </Button>
         </div>
