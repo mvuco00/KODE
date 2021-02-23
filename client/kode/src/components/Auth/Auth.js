@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import Icon from "./Icon";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -17,6 +18,8 @@ import Input from "./Input";
 import useStyles from "./styles";
 const Auth = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = () => {};
@@ -28,8 +31,20 @@ const Auth = () => {
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
   };
+  // kad uspije prijava, vrati se objekt
   const googleSuccess = async (res) => {
-    console.log(res);
+    // ? znaci da nećemo dobiti grešku (vrati undefined), ako ne dobijemo res
+    // profileObj sadrzi podatke o korisniku (email, ime... i googleId)
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+
+    try {
+      dispatch({ type: "AUTH", data: { result, token } });
+      // vraćamo se na home page kad se logiramo
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
   const googleFailure = () => {
     console.log("GOOGLE FAILURE - SIGN IN. Try again");
@@ -94,7 +109,7 @@ const Auth = () => {
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
           <GoogleLogin
-            clientId=""
+            clientId="903628215458-mlft54cp2ao6vtfti662vsihl4s684la.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button
                 className={classes.googleButton}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Header.css";
 import { Button } from "@material-ui/core";
@@ -6,7 +6,14 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const Header = () => {
-  const user = null;
+  // user sadrzi token i result
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  console.log(user);
+
+  useEffect(() => {
+    const token = user?.token;
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, []);
   return (
     <div className={classes.header}>
       <svg

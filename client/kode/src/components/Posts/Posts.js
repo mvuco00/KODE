@@ -7,7 +7,6 @@ import classes from "./Posts.css";
 const Posts = ({ setCurrentId, search }) => {
   const posts = useSelector((state) => state.posts);
   const [filteredData, setFilteredData] = useState();
-  console.log(posts);
 
   useEffect(() => {
     search !== ""
@@ -18,7 +17,7 @@ const Posts = ({ setCurrentId, search }) => {
         )
       : setFilteredData(posts);
   }, [search, posts]);
-  console.log("SEARCH", filteredData);
+
   return (
     <div className={classes.posts}>
       <h1>BEST TUTORIALS </h1>
