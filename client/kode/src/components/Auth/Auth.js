@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { GoogleLogin } from "react-google-login";
+import Icon from "./Icon";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import {
   Avatar,
@@ -25,6 +27,12 @@ const Auth = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
+  };
+  const googleSuccess = async (res) => {
+    console.log(res);
+  };
+  const googleFailure = () => {
+    console.log("GOOGLE FAILURE - SIGN IN. Try again");
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -85,6 +93,26 @@ const Auth = () => {
           >
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
+          <GoogleLogin
+            clientId=""
+            render={(renderProps) => (
+              <Button
+                className={classes.googleButton}
+                color="primary"
+                fullWidth
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+                startIcon={<Icon />}
+                variant="contained"
+              >
+                Google Sign In
+              </Button>
+            )}
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+            cookiePolicy="single_host_origin"
+          />
+
           <Grid container justify="center">
             <Grid item>
               <Button onClick={switchMode}>
