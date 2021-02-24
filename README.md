@@ -1,8 +1,8 @@
 # KODE
-> Website for finding programming tutorials
+> a website for finding programming tutorials
 <div style="float: right">
 <img alt="React" src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
-  <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
+ <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
 <img alt="Express.js" src="https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge"/>
 <img alt="MongoDB" src ="https://img.shields.io/badge/MongoDB-%234ea94b.svg?&style=for-the-badge&logo=mongodb&logoColor=white"/>
  <img alt="Redux" src="https://img.shields.io/badge/redux%20-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white"/>
@@ -12,9 +12,9 @@
 
 
 
-KODE je web stranica namjenjena svima koji žele naučiti programiranje. Na jednom mjestu objedinjuje mnoštvo besplatnih tutorijala. Korisnicima olakšava pronalazak dobrih materijala za učenje.
+KODE is a website for anyone who wants to learn programming. It collects a lot of programming tutorials in one place and makes it easier for users to find good learning materials.
 
-## Alati
+## Built with
 
 - ReactJS, Redux
 - NodeJS, Express
