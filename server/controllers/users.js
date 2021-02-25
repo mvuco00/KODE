@@ -52,7 +52,7 @@ export const signup = async (req, res) => {
     // drugi argument je salt (tezina hashiranja, vecinom 12)
     const hashedPassword = await bycrypt.hash(password, 12);
     // kreira se user
-    const result = await User.create({
+    const result = await UserModel.create({
       email,
       password: hashedPassword,
       name: `${firstName} ${lastName}`,

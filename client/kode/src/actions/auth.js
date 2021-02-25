@@ -6,6 +6,9 @@ import * as api from "../api";
 export const signin = (formData, history) => async (dispatch) => {
   try {
     // log in user
+    // dohvat podataka koje smo u API-ju dohvatili iz baze
+    const { data } = await api.signIn(formData);
+    dispatch({ type: AUTH, data });
     // navigate to home push
     history.push("/");
   } catch (error) {
@@ -16,6 +19,8 @@ export const signin = (formData, history) => async (dispatch) => {
 export const signup = (formData, history) => async (dispatch) => {
   try {
     // sign up the user
+    const { data } = await api.signUp(formData);
+    dispatch({ type: AUTH, data });
     // navigate to home push
     history.push("/");
   } catch (error) {

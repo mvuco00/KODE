@@ -62,15 +62,29 @@ export const deletePost = async (req, res) => {
 
 export const likePost = async (req, res) => {
   const { id } = req.params;
+
+  // provjera user-a, preko middleware-a
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   // provjera je li dobiveni id stvarno mongoose objekt
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");
 
+  // dohvat posta koji user lajka
   const post = await PostMessage.findById(id);
-  const updatedPost = await PostMessage.findByIdAndUpdate(
-    id,
-    { likeCount: post.likeCount + 1 },
-    { new: true }
-  );
+  // je li user već lajkao
+  // u likes se nalaze id-jevi onih koji su lajkali post
+  // findIndex vraća -1 ako ne pronađe
+  const index = post.likes.findIndex((id) => id === String(req.userId));
+  if (index === -1) {
+    // like - pushanje userId-ja u listu tko je lajka
+    post.likes.push(req.userId);
+  } else {
+    // dislike
+    post.likes = post.likes.filter((id) => id !== String(req.userId));
+  }
+  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
+    new: true,
+  });
   res.json(updatedPost);
 };
