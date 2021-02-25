@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
 import dotenv from "dotenv"; // enviromental variables
 
 const app = express(); //poziv express funkcije kojim se radi express aplikcija
@@ -15,6 +16,9 @@ app.use(cors());
 //uspostava middlewarea izmedu aplikacije i servera
 //svim routama dodajemo postfix /posts
 app.use("/posts", postRoutes);
+
+// rute za usere
+app.use("/user", userRoutes);
 
 const PORT = process.env.PORT || 5000;
 

@@ -6,6 +6,8 @@ import {
   deletePost,
   likePost,
 } from "../controllers/posts.js";
+
+// instanca routera
 const router = express.Router();
 
 // callback se izvodi kad neko posjeti navedenu rutu (odnosno onu koja se navodi u index.js)

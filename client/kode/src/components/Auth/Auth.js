@@ -11,19 +11,40 @@ import {
   Grid,
   Typography,
   Container,
-  TextField,
 } from "@material-ui/core";
 import Input from "./Input";
-
 import useStyles from "./styles";
+import { signin, signup } from "../../actions/auth";
+
+const initialData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
 const Auth = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const handleSubmit = () => {};
-  const handleChange = () => {};
+  const [formData, setFormData] = useState(initialData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isSignup) {
+      // history for navigating when something happens
+      dispatch(signup(formData, history));
+    } else {
+      dispatch(signin(formData, history));
+    }
+  };
+  // dohvati se input. Input ima property name i to ime treba odgovarati ključevima u formData
+  // preko eventa se dohvati name [e.target.name] i pridjeli se vrijednost koja je unesena
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   // kad se uzima prethodni state, radi se callback
   const handleShowPassword = () =>
@@ -109,7 +130,7 @@ const Auth = () => {
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
           <GoogleLogin
-            clientId=""
+            clientId="903628215458-mlft54cp2ao6vtfti662vsihl4s684la.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button
                 className={classes.googleButton}
