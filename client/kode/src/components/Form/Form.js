@@ -12,7 +12,6 @@ const Form = ({ currentId, setCurrentId }) => {
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
   const [postData, setPostData] = useState({
-    creator: "",
     title: "",
     youtubeLink: "",
     message: "",
@@ -20,6 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
     selectedFile: "",
   });
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   //useEffect se izvrsi kad se post promijeni
   useEffect(() => {
@@ -32,16 +32,18 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatePost(currentId, postData));
+      dispatch(
+        updatePost(currentId, { ...postData, name: user?.result?.name })
+      );
+      handleClear();
     } else {
-      dispatch(createPost(postData));
+      dispatch(createPost({ ...postData, name: user?.result?.name }));
+      handleClear();
     }
-    handleClear();
   };
   const handleClear = () => {
     setCurrentId(null);
     setPostData({
-      creator: "",
       title: "",
       youtubeLink: "",
       message: "",
@@ -50,19 +52,20 @@ const Form = ({ currentId, setCurrentId }) => {
     });
   };
 
+  if (!user?.result?.name) {
+    return (
+      <div className={classes.form}>
+        <h3>Please sign in if you want add tutorial</h3>
+      </div>
+    );
+  }
+
   return (
     <div className={classes.form}>
       <h1>{currentId ? "EDIT" : "ADD"}</h1>
       <form autoComplete="off" className={classes.inputs} noValidate>
         {/*trebamo spreadat state kako se ne bi stalno overwrite-a nego da samo pomini potrebnu vrijednost*/}
-        <input
-          type="text"
-          placeholder="creator"
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
+
         <input
           type="text"
           placeholder="title"

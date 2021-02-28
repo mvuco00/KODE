@@ -6,7 +6,8 @@ const auth = async (req, res, next) => {
   try {
     // je li korisnik taj za kojeg se predstavlja (treba provjeriti token)
     // token je na prvoj poziciji nakon što se splita
-    const token = req.headers.authorization.split("")[1];
+
+    const token = req.headers.authorization.split(" ")[1];
     // ako uvijet ne vrijedi, onda je to google OAuth token
     const isCustomAuth = token.length < 500;
     let decodedData;

@@ -18,7 +18,11 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
   const post = req.body;
   //modelu saljemo vrijednosti koje smo dobili preko formi (a one su u varijabli post)
-  const newPost = new PostMessage(post);
+  const newPost = new PostMessage({
+    ...post,
+    creator: req.userId,
+    createdAt: new Date().toISOString(),
+  });
   try {
     await newPost.save();
     //status 201 -- good creation

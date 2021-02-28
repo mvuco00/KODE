@@ -31,7 +31,7 @@ const Post = ({ post, setCurrentId }) => {
         </a>
 
         <span className={classes.creator}>
-          by <b>{post.creator}</b>{" "}
+          by <b>{post.name}</b>{" "}
         </span>
         <p className={classes.message}>{post.message}</p>
         <div className={classes.dateButton}>
