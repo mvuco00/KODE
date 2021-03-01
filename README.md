@@ -17,6 +17,7 @@ KODE is a website for anyone who wants to learn programming. It collects a lot o
 <p float="left">
 <img src="images/home.png" width="400">
 <img src="images/tutorials.png" width="400">
+<img src="images/favs.png" width="400">
 
 </p>
 

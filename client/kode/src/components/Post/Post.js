@@ -67,38 +67,39 @@ const Post = ({ post, setCurrentId }) => {
             added {moment(post.createdAt).fromNow()}
           </span>
         </div>
+        <div className={classes.buttons}>
+          {(user?.result?.googleId === post?.creator ||
+            user?.result?._id === post?.creator) && (
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => {
+                setCurrentId(post._id);
+              }}
+            >
+              <MoreHorizIcon />
+            </Button>
+          )}
+          {(user?.result?.googleId === post?.creator ||
+            user?.result?._id === post?.creator) && (
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => dispatch(deletePost(post._id))}
+            >
+              <DeleteForeverIcon fontSize="small" /> Delete
+            </Button>
+          )}
 
-        {(user?.result?.googleId === post?.creator ||
-          user?.result?._id === post?.creator) && (
           <Button
             size="small"
             color="primary"
-            onClick={() => {
-              setCurrentId(post._id);
-            }}
+            disabled={!user?.result}
+            onClick={() => dispatch(likePost(post._id))}
           >
-            <MoreHorizIcon />
+            <Likes />
           </Button>
-        )}
-        {(user?.result?.googleId === post?.creator ||
-          user?.result?._id === post?.creator) && (
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => dispatch(deletePost(post._id))}
-          >
-            <DeleteForeverIcon fontSize="small" /> Delete
-          </Button>
-        )}
-
-        <Button
-          size="small"
-          color="primary"
-          disabled={!user?.result}
-          onClick={() => dispatch(likePost(post._id))}
-        >
-          <Likes />
-        </Button>
+        </div>
       </div>
     </div>
   );
