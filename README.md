@@ -14,6 +14,12 @@
 
 KODE is a website for anyone who wants to learn programming. It collects a lot of programming tutorials in one place and makes it easier for users to find good learning materials.
 
+<p float="left">
+<img src="images/home.png" width="400">
+<img src="images/tutorials.png" width="400">
+
+</p>
+
 ## Built with
 
 - ReactJS, Redux
