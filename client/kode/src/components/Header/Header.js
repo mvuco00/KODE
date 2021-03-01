@@ -19,9 +19,10 @@ const Header = () => {
 
   useEffect(() => {
     const token = user?.token;
+    // je li token istekao
     if (token) {
       const decodedToken = decode(token);
-
+      // logout ako token istekne
       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
     setUser(JSON.parse(localStorage.getItem("profile")));

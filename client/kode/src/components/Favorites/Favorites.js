@@ -15,7 +15,6 @@ const Favorites = () => {
     });
     setLikedPosts(arr);
   }, []);
-  console.log(likedPosts);
 
   return (
     <div className={classes.posts}>
