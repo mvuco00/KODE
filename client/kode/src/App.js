@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
-import Favorites from "./components/Favorites";
+import Favorites from "./components/Favorites/Favorites";
 import About from "./components/About";
 import Auth from "./components/Auth/Auth";
 

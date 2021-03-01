@@ -1,0 +1,32 @@
+.posts {
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23010306' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%2302060c' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23030912' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23040d17' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%2305101d' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23061323' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23071629' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+.posts h1 {
+  text-align: center;
+}
+.allPosts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  padding: 30px 0 30px 0;
+  margin-left: 100px;
+}
+
+@media only screen and (max-width: 980px) {
+  .allPosts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 652px) {
+  .allPosts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+}

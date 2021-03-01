@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import classes from "./Header.css";
+import decode from "jwt-decode";
 import { useDispatch } from "react-redux";
-
-import { Button } from "@material-ui/core";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const Header = () => {
   // user sadrzi token i result
@@ -14,7 +11,6 @@ const Header = () => {
   const location = useLocation();
   const history = useHistory();
 
-  console.log(user);
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     history.push("/");
@@ -23,6 +19,11 @@ const Header = () => {
 
   useEffect(() => {
     const token = user?.token;
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
 
@@ -49,15 +50,14 @@ const Header = () => {
       </div>
       {user ? (
         <div>
-          <AccountCircleIcon />
-          <Button size="small" color="primary" onClick={logout}>
-            <ExitToAppIcon />
-          </Button>
+          <button className={classes.logout} onClick={logout}>
+            LOG OUT
+          </button>
         </div>
       ) : (
-        <Button component={Link} to="/auth">
+        <Link to="/auth" className={classes.signin}>
           SIGN IN
-        </Button>
+        </Link>
       )}
     </div>
   );
