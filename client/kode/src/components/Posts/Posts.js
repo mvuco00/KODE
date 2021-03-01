@@ -11,7 +11,7 @@ const Posts = ({ setCurrentId, search }) => {
   useEffect(() => {
     search !== ""
       ? setFilteredData(
-          posts.likes.filter((post) =>
+          posts.filter((post) =>
             post.message.toLowerCase().includes(search.toLowerCase())
           )
         )

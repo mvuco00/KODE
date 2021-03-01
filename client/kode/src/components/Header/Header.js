@@ -45,7 +45,8 @@ const Header = () => {
 
       <div className={classes.headerLinks}>
         <Link to="/">HOME</Link>
-        <Link to="/favorites">FAVORITES</Link>
+        {user && <Link to="/favorites">FAVORITES</Link>}
+
         <Link to="/about">ABOUT US</Link>
       </div>
       {user ? (
