@@ -12,6 +12,7 @@ const Form = ({ currentId, setCurrentId }) => {
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
   const [postData, setPostData] = useState({
+    youtubeCreator: "",
     title: "",
     youtubeLink: "",
     message: "",
@@ -44,6 +45,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const handleClear = () => {
     setCurrentId(null);
     setPostData({
+      youtubeCreator: "",
       title: "",
       youtubeLink: "",
       message: "",
@@ -65,16 +67,23 @@ const Form = ({ currentId, setCurrentId }) => {
       <h1>{currentId ? "EDIT" : "ADD"}</h1>
       <form autoComplete="off" className={classes.inputs} noValidate>
         {/*trebamo spreadat state kako se ne bi stalno overwrite-a nego da samo pomini potrebnu vrijednost*/}
-
         <input
           type="text"
-          placeholder="title"
+          placeholder="Youtube creator"
+          value={postData.youtubeCreator}
+          onChange={(e) =>
+            setPostData({ ...postData, youtubeCreator: e.target.value })
+          }
+        />
+        <input
+          type="text"
+          placeholder="Title"
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
         <input
           type="text"
-          placeholder="message"
+          placeholder="Description"
           value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
@@ -82,7 +91,7 @@ const Form = ({ currentId, setCurrentId }) => {
         />
         <input
           type="text"
-          placeholder="youtube url"
+          placeholder="Youtube link"
           value={postData.youtubeLink}
           onChange={(e) =>
             setPostData({ ...postData, youtubeLink: e.target.value })
@@ -90,7 +99,7 @@ const Form = ({ currentId, setCurrentId }) => {
         />
         <input
           type="text"
-          placeholder="tags"
+          placeholder="Tag"
           value={postData.tags}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />

@@ -5,6 +5,7 @@ const postSchema = mongoose.Schema({
   message: String,
   name: String,
   creator: String,
+  youtubeCreator: String,
   youtubeLink: String,
   tags: [String],
   selectedFile: String,
