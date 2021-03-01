@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { Button } from "@material-ui/core";
@@ -10,6 +11,32 @@ import { deletePost, likePost } from "../../actions/posts";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem("profile"));
+  const Likes = () => {
+    if (post.likes.length > 0) {
+      return post.likes.find(
+        (like) => like === (user?.result?.googleId || user?.result?._id)
+      ) ? (
+        <>
+          <FavoriteIcon fontSize="small" />
+          &nbsp;
+          {`${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
+        </>
+      ) : (
+        <>
+          <FavoriteBorderIcon fontSize="small" />
+          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
+        </>
+      );
+    }
+
+    return (
+      <>
+        <FavoriteBorderIcon fontSize="small" />
+        &nbsp;Like
+      </>
+    );
+  };
   return (
     <div className={classes.post}>
       <a href={post.youtubeLink} target="_blank" rel="noopener noreferrer">
@@ -60,8 +87,7 @@ const Post = ({ post, setCurrentId }) => {
           color="primary"
           onClick={() => dispatch(likePost(post._id))}
         >
-          <FavoriteBorderIcon fontSize="small" />{" "}
-          <b>&nbsp; {post.likeCount} &nbsp;</b>
+          <Likes />
         </Button>
       </div>
     </div>

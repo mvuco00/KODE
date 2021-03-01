@@ -1,6 +1,7 @@
 import PostMessage from "../models/postMessage.js";
 import mongoose from "mongoose";
-
+import express from "express";
+const router = express.Router();
 //logika routa
 export const getPosts = async (req, res) => {
   //localhost:5000/posts
@@ -90,5 +91,7 @@ export const likePost = async (req, res) => {
   const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
     new: true,
   });
-  res.json(updatedPost);
+  res.status(200).json(updatedPost);
 };
+
+export default router;
