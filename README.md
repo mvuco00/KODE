@@ -1,5 +1,7 @@
 # KODE
+
 > a website for finding programming tutorials
+
 <div style="float: right">
 <img alt="React" src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
  <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
@@ -10,8 +12,6 @@
 
 </div>
 
-
-
 KODE is a website for anyone who wants to learn programming. It collects a lot of programming tutorials in one place and makes it easier for users to find good learning materials.
 
 ## Built with
@@ -19,3 +19,11 @@ KODE is a website for anyone who wants to learn programming. It collects a lot o
 - ReactJS, Redux
 - NodeJS, Express
 - MongoDB
+
+## Features
+
+- Fetching data from MongoDB
+- Search bar
+- Login & Signup (JWT or Google OAuth)
+- Favourites page with all tutorials that user liked
+- User can add new tutorials and edit them

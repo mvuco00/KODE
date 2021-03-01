@@ -6,15 +6,15 @@ import classes from "./Favorites.css";
 const Favorites = () => {
   const [likedPosts, setLikedPosts] = useState([]);
   const posts = useSelector((state) => state.posts);
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
     let arr = [];
     posts.map((post) => {
-      post.likes.includes(user?.result?._id) && arr.push(post);
+      return post.likes.includes(user?.result?._id) && arr.push(post);
     });
     setLikedPosts(arr);
-  }, []);
+  }, [posts, user?.result?._id]);
 
   return (
     <div className={classes.posts}>

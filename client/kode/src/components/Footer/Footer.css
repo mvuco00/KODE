@@ -1,0 +1,16 @@
+.footer {
+  background-color: #030305ee;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.credit {
+  display: flex;
+  flex-direction: column;
+  color: rgba(240, 248, 255, 0.527);
+}
+.socialMedia > * {
+  margin-left: 15px;
+}

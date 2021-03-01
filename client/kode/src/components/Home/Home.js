@@ -9,6 +9,7 @@ import Search from "../Search/Search";
 
 const Home = () => {
   const [currentId, setCurrentId] = useState(null);
+  const user = JSON.parse(localStorage.getItem("profile"));
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
@@ -41,7 +42,9 @@ const Home = () => {
         <img src={BcgImg} alt="Logo" className={classes.homeImage} />
       </div>
       <Posts setCurrentId={setCurrentId} search={search} />
-      <Form currentId={currentId} setCurrentId={setCurrentId} />
+      {user?.result && (
+        <Form currentId={currentId} setCurrentId={setCurrentId} />
+      )}
     </div>
   );
 };

@@ -54,14 +54,6 @@ const Form = ({ currentId, setCurrentId }) => {
     });
   };
 
-  if (!user?.result?.name) {
-    return (
-      <div className={classes.form}>
-        <h3>Please sign in if you want add tutorial</h3>
-      </div>
-    );
-  }
-
   return (
     <div className={classes.form}>
       <h1>{currentId ? "EDIT" : "ADD"}</h1>

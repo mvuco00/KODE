@@ -9,7 +9,7 @@ import {
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
 import Favorites from "./components/Favorites/Favorites";
-import About from "./components/About";
+import About from "./components/AboutUs/About";
 import Auth from "./components/Auth/Auth";
 
 const App = () => {
