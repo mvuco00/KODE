@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux"; // sluzi za dispatchanje akcije
 import { getPosts } from "../../../src/actions/posts";
 import classes from "./Home.css";
@@ -40,9 +41,15 @@ const Home = () => {
           <Search setSearch={setSearch} />
           <button className={classes.addButton}>
             {" "}
-            <a className={classes.addLink} href="#form">
-              +
-            </a>
+            {user?.result ? (
+              <a className={classes.addLink} href="#form">
+                +
+              </a>
+            ) : (
+              <Link to="/auth" className={classes.addLink}>
+                +
+              </Link>
+            )}
           </button>
         </div>
         <img src={BcgImg} alt="Logo" className={classes.homeImage} />

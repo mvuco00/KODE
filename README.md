@@ -31,6 +31,6 @@ KODE is a website for anyone who wants to learn programming. It collects a lot o
 
 - Fetching data from MongoDB
 - Search bar
-- LogIn & SignUp (JWT or Google OAuth)
+- Login & Signup (JWT or Google OAuth)
 - Favourites page with all tutorials that user liked
 - User can add new tutorials and edit them

@@ -44,3 +44,11 @@
   border: none;
   cursor: pointer;
 }
+
+.signinButton {
+  padding: 7px;
+  background-color: rgba(78, 78, 78, 0.39);
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 15px;
+}

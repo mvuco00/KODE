@@ -30,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   // user sadrzi token i result
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
@@ -52,8 +54,6 @@ const Header = () => {
     }
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location, user?.token]);
-  const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -63,7 +63,6 @@ const Header = () => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
   function handleListKeyDown(event) {
@@ -143,7 +142,9 @@ const Header = () => {
                       id="menu-list-grow"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem onClick={handleClose}>Profile</MenuItem>
+                      <MenuItem onClick={handleClose}>
+                        <Link to="/profile">Profile</Link>
+                      </MenuItem>
                       <MenuItem onClick={logout}>Logout</MenuItem>
                     </MenuList>
                   </ClickAwayListener>
@@ -153,9 +154,11 @@ const Header = () => {
           </Popper>
         </div>
       ) : (
-        <Link to="/auth" className={classes.signin}>
-          SIGN IN
-        </Link>
+        <button className={classes.signinButton}>
+          <Link to="/auth" className={classes.signin}>
+            SIGN IN
+          </Link>
+        </button>
       )}
     </div>
   );
