@@ -38,9 +38,16 @@ const Home = () => {
             <div>start your programming journey</div>
           </div>
           <Search setSearch={setSearch} />
+          <button className={classes.addButton}>
+            {" "}
+            <a className={classes.addLink} href="#form">
+              +
+            </a>
+          </button>
         </div>
         <img src={BcgImg} alt="Logo" className={classes.homeImage} />
       </div>
+
       <Posts setCurrentId={setCurrentId} search={search} />
       {user?.result && (
         <Form currentId={currentId} setCurrentId={setCurrentId} />

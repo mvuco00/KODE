@@ -55,7 +55,7 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   return (
-    <div className={classes.form}>
+    <div id="form" className={classes.form}>
       <h1>{currentId ? "EDIT" : "ADD"}</h1>
       <form autoComplete="off" className={classes.inputs} noValidate>
         {/*trebamo spreadat state kako se ne bi stalno overwrite-a nego da samo pomini potrebnu vrijednost*/}
