@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
+  console.log("rendering-header");
   // user sadrzi token i result
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const [open, setOpen] = useState(false);

@@ -8,6 +8,7 @@ import classes from "./Form.css";
 // dohvat id trenutnog posta
 
 const Form = ({ currentId, setCurrentId }) => {
+  console.log("rendering-form");
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
@@ -115,4 +116,4 @@ const Form = ({ currentId, setCurrentId }) => {
   );
 };
 
-export default Form;
+export default React.memo(Form);

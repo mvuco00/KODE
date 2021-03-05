@@ -3,6 +3,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import classes from "./Search.css";
 
 const Search = ({ setSearch }) => {
+  console.log("render-search");
   return (
     <div className={classes.search}>
       <input
@@ -15,4 +16,4 @@ const Search = ({ setSearch }) => {
   );
 };
 
-export default Search;
+export default React.memo(Search);

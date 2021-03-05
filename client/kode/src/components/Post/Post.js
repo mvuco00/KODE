@@ -105,4 +105,4 @@ const Post = ({ post, setCurrentId }) => {
   );
 };
 
-export default Post;
+export default React.memo(Post);

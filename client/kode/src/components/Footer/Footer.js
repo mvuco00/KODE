@@ -5,6 +5,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import FacebookIcon from "@material-ui/icons/Facebook";
 function Footer() {
+  console.log("rendering-footer");
   return (
     <div className={classes.footer}>
       <div className={classes.credit}>
@@ -30,4 +31,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default React.memo(Footer);
