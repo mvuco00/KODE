@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import {
   MenuItem,
@@ -12,7 +13,7 @@ import {
 
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Logo from "../Logo/logo";
 import classes from "./Header.css";
 import decode from "jwt-decode";
 import { useDispatch } from "react-redux";
@@ -28,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
-  console.log("rendering-header");
   // user sadrzi token i result
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const [open, setOpen] = useState(false);
@@ -37,6 +37,7 @@ const Header = () => {
   const location = useLocation();
   const history = useHistory();
   const classesM = useStyles();
+  const isMobile = useMediaQuery({ query: `(max-width: 660px)` });
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
@@ -84,26 +85,21 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <svg
-        width="22"
-        height="26"
-        viewBox="0 0 22 26"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={classes.logo}
-      >
-        <path
-          d="M8.30078 15.7344L5.55859 18.6875V26H0.285156V0.40625H5.55859V12.0078L7.87891 8.82617L14.4004 0.40625H20.8867L11.7988 11.7793L21.1504 26H14.875L8.30078 15.7344Z"
-          fill="#FDF5F5"
-        />
-      </svg>
+      <Logo />
+      {isMobile ? (
+        <div className={classes.headerLinksM}>
+          <Link to="/">HOME</Link>
+          {user && <Link to="/favorites">FAVOURITES</Link>}
+          <Link to="/about">ABOUT US</Link>
+        </div>
+      ) : (
+        <div className={classes.headerLinks}>
+          <Link to="/">HOME</Link>
+          {user && <Link to="/favorites">FAVOURITES</Link>}
+          <Link to="/about">ABOUT US</Link>
+        </div>
+      )}
 
-      <div className={classes.headerLinks}>
-        <Link to="/">HOME</Link>
-        {user && <Link to="/favorites">FAVOURITES</Link>}
-
-        <Link to="/about">ABOUT US</Link>
-      </div>
       {user ? (
         <div>
           <Button

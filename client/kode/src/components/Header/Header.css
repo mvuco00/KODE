@@ -32,9 +32,7 @@
 .headerLinks > *:hover {
   cursor: pointer;
 }
-.logo {
-  margin-left: 20px;
-}
+
 .signin {
   color: rgb(243, 161, 106);
 }
@@ -51,4 +49,16 @@
   border: 1px solid black;
   border-radius: 5px;
   font-size: 15px;
+}
+.headerM {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #030305ee;
+}
+.headerLinksM {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #030305ee;
 }
